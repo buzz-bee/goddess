@@ -361,7 +361,7 @@ async def on_message(msg):
 	await client.process_commands(msg)
 
 
-client.run('NzkyMDI5Mzg1MjYyODkxMDE4.X-Xw2A.elhWcDvHy1HSXhhZXZ9f8bhs24o')
+client.run('NzkyMDI5Mzg1MjYyODkxMDE4.X-Xw2A.jWNzI7DLEwfvEEYiegHWniQZ9gA')
 
 
 
