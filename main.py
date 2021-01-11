@@ -179,13 +179,10 @@ async def mass(ctx):
 	await ctx.author.add_roles(role)
 
 	embed = discord.Embed(title="**looking to mass?**", color=0xf8f8f9)
-	embed.add_field(
-	    name="⠂꒦．thank you for opening a ticket, {user}. please **follow** the steps below to mass !! \n\
-∿ ✧ ⠂**send** your advertisement (limit of 5 ads) in **codeblock**. \n\
+	embed.add_field(name="⠂꒦．thank you for opening a ticket! please **follow** the steps below to mass !!" , value ="∿ ✧ ⠂**send** your advertisement (limit of 5 ads) in **codeblock**. \n\
 ⠂꒦．then start **posting** from **bottom** to **top** all of the channels below with an ad. \n\
 ∿ ✧ ⠂once **finished** send a few pictures **here** of “proof” that you posted. \n\
-╰ <:w_heart:787789783724064788> ：then **we** will post your advertisements into the listed servers, once we’ve sent the “done” go ahead and say `!finished` to remove your pm-access role.٫ ⠂"
-	)
+╰ <:w_heart:787789783724064788> ：then **we** will post your advertisements into the listed servers, once we’ve sent the “done” go ahead and say `!finished` to remove your pm-access role.٫ ⠂")
 	await ctx.send(embed=embed)
 
 
