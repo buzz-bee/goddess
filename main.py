@@ -1,8 +1,10 @@
 import discord
-import random
 from discord.ext import commands
 
-client = commands.Bot(command_prefix=".")
+intents = discord.Intents.default()
+intents.members = True
+
+client = commands.Bot(command_prefix=".", intents = intents)
 client.remove_command("help")
 
 # VARIABLES
@@ -310,27 +312,27 @@ async def on_command_error(ctx,error):
 # EVENTS
 
 
-@client.event
-async def on_message(msg):
-	if msg.author == client.user:
-		return None
-
-	for word in wordlist:
-		if word in msg.content:
-			await msg.channel.send("Oh! Hello there!")
-
-	for word in filtered_words:
-		if word in msg.content:
-			await msg.delete()
-
-	for word in welcome:
-		if word in msg.content:
-			await msg.add_reaction("<:w_heart:787789783724064788>")
-
-	for word in welcome:
-		if word in msg.content:
-			await msg.add_reaction("<:p_cherryblossoms:787504360686092299>")
-	await client.process_commands(msg)
+# @client.event
+# async def on_message(msg):
+# 	if msg.author == client.user:
+# 		return None
+# 
+# 	for word in wordlist:
+# 		if word in msg.content:
+# 			await msg.channel.send("Oh! Hello there!")
+# 
+# 	for word in filtered_words:
+# 		if word in msg.content:
+# 			await msg.delete()
+# 
+# 	for word in welcome:
+# 		if word in msg.content:
+# 			await msg.add_reaction("<:w_heart:787789783724064788>")
+# 
+# 	for word in welcome:
+# 		if word in msg.content:
+# 			await msg.add_reaction# ("<:p_cherryblossoms:787504360686092299>")
+# 	await client.process_commands(msg)
 
 
 client.run('NzkyMDI5Mzg1MjYyODkxMDE4.X-Xw2A.jWNzI7DLEwfvEEYiegHWniQZ9gA')
