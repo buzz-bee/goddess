@@ -1,5 +1,4 @@
 import discord
-import aiofiles
 import random
 from discord.ext import commands
 
@@ -44,7 +43,6 @@ async def help(ctx):
 > \n\
 ⋮ **misc commands** \n\
 ♦︎ whois \n\
-♦︎ topic (in progress)\n\
 > \n\
 ⋮ **information!** \n\
 ***main dev*** :: <@!744260291851845842> \n\
@@ -172,19 +170,6 @@ async def finished(ctx):
     
     await ctx.send(embed = em)
 
-@help.command()
-async def topic(ctx):
-    em = discord.Embed(title ="♦︎ ⋮ **︶︶︶︶︶︶︶︶︶!**", description = "⋅˚₊ ♦︎ ⸝⸝ ୨୧ ゛topic command! ︵˚. ɞ \n\
-♦︎ ⋮ **description!** \n\
-> provides a topic to make chat active again! \n\
-♦︎ ⋮ **command!** \n\
-> !topic \n\
-♦︎ **basically just say !topic and a topic embed will spawn in chat!** \n\
-> aliases :: starter \n\
-♦︎ ⋮ **︶︶︶︶︶︶︶︶︶!**", color = 0xf8f8f9)
-    
-    await ctx.send(embed = em)
-
 # COMMANDS
 
 
@@ -221,19 +206,6 @@ async def finished(ctx):
 ∿ ✧ ⠂if you have any questions send them before you close the ticket. this means do not close the ticket if you still have questions. \n\
 ╰ <:w_heart:787789783724064788> ：thank you so much for massing with us (make sure to leave a review for us in <#788557574223298622>).٫ ⠂"
 	)
-	await ctx.send(embed=embed)
-
-@client.command(aliases=['starter'])
-async def topic(ctx):
-	embed = discord.Embed(title="**loading a topic start . .**", color=0xf8f8f9)
-	embed.add_field(
-	    name="**・・❝ T O P I C ❞ ・・**",
-	    value=choices
-	)
-	async with aiofiles.open('lines.txt') as f:
-		choices = await f.readlines()
-	print(random.choice(choices))
-
 	await ctx.send(embed=embed)
 
 
@@ -362,6 +334,4 @@ async def on_message(msg):
 
 
 client.run('NzkyMDI5Mzg1MjYyODkxMDE4.X-Xw2A.jWNzI7DLEwfvEEYiegHWniQZ9gA')
-
-
 
