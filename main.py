@@ -335,5 +335,5 @@ async def on_command_error(ctx,error):
 # 	await client.process_commands(msg)
 
 
-client.run('NzkyMDI5Mzg1MjYyODkxMDE4.X-Xw2A.jWNzI7DLEwfvEEYiegHWniQZ9gA')
+client.run('')
 
