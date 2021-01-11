@@ -1,4 +1,5 @@
 import discord
+import traceback
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -300,7 +301,7 @@ async def mute(ctx,member : discord.Member):
     await member.add_roles(muted_role)
 
     await ctx.send(member.mention + "has been muted.")
-		
+	
 @client.event
 async def on_command_error(ctx,error):
 	if isinstance(error,commands.MissingPermissions):
@@ -308,31 +309,34 @@ async def on_command_error(ctx,error):
 	if isinstance(error,commands.MissingRequiredArgument):
 		await ctx.send(ctx.author.mention + " is trying to call a command but forgot to add something to the command! Ack.")
 
+	else:
+		traceback.print_exception(type(error), error, error.__traceback__)
+
 
 # EVENTS
 
 
-# @client.event
-# async def on_message(msg):
-# 	if msg.author == client.user:
-# 		return None
-# 
-# 	for word in wordlist:
-# 		if word in msg.content:
-# 			await msg.channel.send("Oh! Hello there!")
-# 
-# 	for word in filtered_words:
-# 		if word in msg.content:
-# 			await msg.delete()
-# 
-# 	for word in welcome:
-# 		if word in msg.content:
-# 			await msg.add_reaction("<:w_heart:787789783724064788>")
-# 
-# 	for word in welcome:
-# 		if word in msg.content:
-# 			await msg.add_reaction# ("<:p_cherryblossoms:787504360686092299>")
-# 	await client.process_commands(msg)
+@client.event
+async def on_message(msg):
+	if msg.author == client.user:
+		return None
+ 
+	for word in wordlist:
+		if word in msg.content:
+			await msg.channel.send("Oh! Hello there!")
+	
+	for word in filtered_words:
+		if word in msg.content:
+			await msg.delete()
+ 
+	for word in welcome:
+		if word in msg.content:
+			await msg.add_reaction("<:w_heart:787789783724064788>")
+ 
+	for word in welcome:
+		if word in msg.content:
+ 			await msg.add_reaction# ("<:p_cherryblossoms:787504360686092299>")
+	await client.process_commands(msg)
 
 
 client.run('')
